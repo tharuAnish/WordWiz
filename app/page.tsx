@@ -1,7 +1,10 @@
+import Nav from "@/components/nav/nav"
+import { ModeToggle } from "@/components/theme/toggle"
+
 export default function Home() {
   return (
     <div>
-      <h1>HOME</h1>
+      <Nav />
     </div>
   )
 }
