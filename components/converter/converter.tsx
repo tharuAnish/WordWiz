@@ -112,7 +112,7 @@ export default function Converter() {
           <p className="">Time to read: {timeToRead}</p>
         </div>
       </div>
-      <h4 className="text-xl font-semibold mb-2 ">Preview:</h4>
+      <h4 className="text-xl  mb-2 ">Preview:</h4>
       <div className="relative">
         <p className="p-3 rounded-md border h-36 cursor-text">
           {convertedText}

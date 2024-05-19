@@ -7,14 +7,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { ToastContainer, toast, ToastOptions } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useTheme } from "next-themes"
-
-import { FaRegCopy } from "react-icons/fa6"
+import { FaRegCopy, FaEye, FaEyeSlash } from "react-icons/fa6"
 
 export default function Converter() {
   const { resolvedTheme } = useTheme()
   const [text, setText] = useState<string>("")
   const [convertedText, setConvertedText] = useState<string>("")
   const [keyword, setKeyword] = useState<string>("")
+  const [showPassword, setShowPassword] = useState<boolean>(false)
 
   const toastOptions: ToastOptions = {
     position: "top-right",
@@ -113,13 +113,20 @@ export default function Converter() {
           rows={6}
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-4 relative">
         <Input
-          type="password"
+          className="p-5"
+          type={showPassword ? "text" : "password"}
           value={keyword}
           onChange={handleKeywordChange}
           placeholder="Enter keyword for encryption/decryption"
         />
+        <button
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute top-2 right-2 p-1 "
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </button>
       </div>
       <div className="mb-6 flex justify-between">
         <div className="flex space-x-4">
