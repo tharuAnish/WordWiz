@@ -12,7 +12,11 @@ export default function Nav() {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image src={logo} className="h-10 w-10" alt="Flowbite Logo" />
+          <Image
+            src={logo}
+            className="h-10 w-10 dark:invert"
+            alt="Flowbite Logo"
+          />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             WordWiz
           </span>
