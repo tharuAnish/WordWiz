@@ -106,7 +106,7 @@ export default function Converter() {
       </div>
       <div className="mb-4">
         <h4 className="mb-1">Your Text Summary</h4>
-        <div className="text-sm font-extralight flex gap-5 p-4 dark:bg-slate-900 bg-stone-50 rounded-lg shadow-md">
+        <div className="text-sm font-extralight flex gap-5 p-4 dark:bg-slate-900 bg-stone-100 rounded-lg shadow-md">
           <p className="">Word count: {wordCount}</p>
           <p className="">Letter count: {letterCount}</p>
           <p className="">Time to read: {timeToRead}</p>
