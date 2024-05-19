@@ -15,6 +15,7 @@ export default function Converter() {
   const [convertedText, setConvertedText] = useState<string>("")
   const [keyword, setKeyword] = useState<string>("")
   const [showPassword, setShowPassword] = useState<boolean>(false)
+  const [showKey, setShowKey] = useState<boolean>(false)
 
   const toastOptions: ToastOptions = {
     position: "top-right",
@@ -116,16 +117,16 @@ export default function Converter() {
       <div className="mb-4 relative">
         <Input
           className="p-5"
-          type={showPassword ? "text" : "password"}
+          type={showKey ? "text" : "password"}
           value={keyword}
           onChange={handleKeywordChange}
           placeholder="Enter keyword for encryption/decryption"
         />
         <button
-          onClick={() => setShowPassword(!showPassword)}
+          onClick={() => setShowKey(!showKey)}
           className="absolute top-2 right-2 p-1 "
         >
-          {showPassword ? <FaEyeSlash /> : <FaEye />}
+          {showKey ? <FaEyeSlash /> : <FaEye />}
         </button>
       </div>
       <div className="mb-6 flex justify-between">
@@ -140,11 +141,11 @@ export default function Converter() {
 
       <h4 className="text-xl font-semibold mb-2 ">Preview:</h4>
       <div className="relative">
-        <Textarea
+        <Input
           value={convertedText}
           readOnly
-          rows={6}
-          className="p-3 rounded-md border h-36 cursor-text"
+          type={showPassword ? "text" : "password"}
+          className="p-3 block rounded-md border h-36 cursor-text"
         />
         <Button
           onClick={handleCopyText}
@@ -152,6 +153,13 @@ export default function Converter() {
           className="absolute top-2 right-2"
         >
           <FaRegCopy />
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute top-14 right-2 "
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
         </Button>
       </div>
       <ToastContainer />
