@@ -65,7 +65,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          {children}
+          <div className="light:bg-black">{children}</div>
         </ThemeProvider>
       </body>
     </html>
