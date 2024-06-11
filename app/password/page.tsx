@@ -41,7 +41,14 @@ export default function Converter() {
     if (charCode >= 65 && charCode <= 90) {
       return String.fromCharCode(((charCode - 65 + shiftWrapped) % 26) + 65)
     }
-    // Return the character as is if it's not a letter
+    // Handle digits
+    if (charCode >= 48 && charCode <= 57) {
+      const shiftWrappedDigit = (shift >= 0 ? shift : (shift % 10) + 10) % 10
+      return String.fromCharCode(
+        ((charCode - 48 + shiftWrappedDigit) % 10) + 48
+      )
+    }
+    // Return the character as is if it's not a letter or digit
     return char
   }
 
