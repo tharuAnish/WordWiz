@@ -52,11 +52,26 @@ export default function Converter() {
     return char
   }
 
+  const swapSymbols = (char: string): string => {
+    switch (char) {
+      case "@":
+        return "$"
+      case "$":
+        return "@"
+      case "-":
+        return "_"
+      case "_":
+        return "-"
+      default:
+        return char
+    }
+  }
+
   const encryptText = (text: string): string => {
     const shift = text.length
     return text
       .split("")
-      .map((char) => shiftChar(char, shift))
+      .map((char) => swapSymbols(shiftChar(char, shift)))
       .join("")
   }
 
@@ -64,7 +79,7 @@ export default function Converter() {
     const shift = text.length
     return text
       .split("")
-      .map((char) => shiftChar(char, -shift))
+      .map((char) => shiftChar(swapSymbols(char), -shift))
       .join("")
   }
 

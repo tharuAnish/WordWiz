@@ -70,7 +70,7 @@ export default function Converter() {
       .filter((word) => word.length > 0)
     setWordCount(words.length)
     setLetterCount(text.replace(/\s+/g, "").length)
-    const wordsPerMinute = 200
+    const wordsPerMinute = 120
     const minutes = words.length / wordsPerMinute
     setTimeToRead(
       minutes < 1 ? "< 1 minute" : `${Math.ceil(minutes)} minute(s)`
@@ -106,7 +106,7 @@ export default function Converter() {
       </div>
       <div className="mb-4">
         <h4 className="mb-1">Your Text Summary</h4>
-        <div className="text-sm font-extralight flex gap-5 p-4 dark:bg-slate-900 bg-stone-100 rounded-lg shadow-md">
+        <div className="text-sm  flex gap-5 p-4 dark:bg-slate-900 bg-stone-100 rounded-lg shadow-md">
           <p className="">Word count: {wordCount}</p>
           <p className="">Letter count: {letterCount}</p>
           <p className="">Time to read: {timeToRead}</p>
@@ -114,7 +114,7 @@ export default function Converter() {
       </div>
       <h4 className="text-xl  mb-2 ">Preview:</h4>
       <div className="relative">
-        <p className="p-3 rounded-md border h-36 cursor-text">
+        <p className="p-4 rounded-md border h-auto min-h-36 dark:text-gray-400 cursor-text">
           {convertedText}
         </p>
         <Button
